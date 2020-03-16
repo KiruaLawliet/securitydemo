@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace="com.huawei.securitydemo.dao.mapper.UserMapper">
+    <resultMap id="UserMap" type="com.huawei.securitydemo.dao.entity.User">
+        <id column="id" property="id" jdbcType="INT">
+        <result column="name" property="name" jdbcType="VARCHAR">
+        <result column="age" property="age" jdbcType="LONG">
+        <result column="address" property="address" jdbcType="VARCHAR">
+    </resultMap>
+    
+        
+    <select id="selectByName" resultMap="UserMap" parameterType="java.lang.String">
+        select * from userinfo where name like caoncat('%', #{name}, '%');
+    </select>
+    
+    
+    <select id="selectById" resultMap="UserMap" parameterType="java.lang.long">
+        select * from userinfo where id=#{id};
+    </select>
+    
+    <update id="updateAddressAndAgeById" resultMap="java.lang.Integer" parameterType="com.huawei.securitydemo.dao.entity.User">
+        update userinfo set age=#{age}, address=#{address} where id=#{id}; 
+    </update>

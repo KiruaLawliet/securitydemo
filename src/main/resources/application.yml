@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    username: sec
+    password: sec@123
+    url: jdbc:mysql://192.168.43.17:3306/securitydemo?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
